@@ -1,0 +1,15 @@
+<div class="item">
+    <img src="{{ data.image }}" alt="{{ data.name }}">
+    <div class="body">
+        <h4>{{ data.title }}</h4>
+        <p>{{ data.description }}</p>
+    </div>
+    <div class="px-3 mb-2 d-flex justify-content-between align-items-center">
+        <button class="btn btn-success" *ngIf="!clicked" (click)="clicked = true">Add To Cart</button>
+        <div class="d-flex w-75" *ngIf="clicked">
+            <input type="number" class="form-control mx-1" [(ngModel)]="amount">
+            <button class="btn btn-primary" (click)="add()">Add</button>
+        </div>
+        <span class="text-white">{{ data.price }} $</span>
+    </div>
+</div>
