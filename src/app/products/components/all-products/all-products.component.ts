@@ -77,6 +77,7 @@ export class AllProductsComponent implements OnInit {
       let exist = this.cartProducts.find(product => product.product.id! === event.product.id!);
       if (exist) {
         alert('Product already exists in your cart!')
+        console.log('hey')
       } else {
         this.cartProducts.push(event);
         localStorage.setItem('cart', JSON.stringify(this.cartProducts));
