@@ -5,6 +5,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { BrowserModule } from '@angular/platform-browser'
 import { SharedModule } from '../shared/shared.module';
 import { ProductComponent } from './components/product/product.component';
+import { ActivatedRoute, ActivatedRouteSnapshot, RouterModule } from '@angular/router';
 
 
 
@@ -12,12 +13,13 @@ import { ProductComponent } from './components/product/product.component';
   declarations: [
     AllProductsComponent,
     ProductDetailsComponent,
-    ProductComponent
+    ProductComponent,
   ],
   imports: [
     CommonModule,
     BrowserModule,
     SharedModule,
+    RouterModule,
   ]
 })
 export class ProductsModule { }

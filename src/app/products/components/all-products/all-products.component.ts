@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { BrowserModule } from '@angular/platform-browser'
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-all-products',
@@ -11,8 +12,8 @@ import { BrowserModule } from '@angular/platform-browser'
 export class AllProductsComponent implements OnInit {
 
   title: string = 'Categories';
-  products: any[] = [];
-  categories: any[] = [];
+  products: Product[] = [];
+  categories: string[] = [];
   cartProducts: any[] = [];
   loaded: boolean = false;
 
@@ -68,7 +69,7 @@ export class AllProductsComponent implements OnInit {
   }
 
   addToCart(event: any) {
-    localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+    // localStorage.setItem('cart', JSON.stringify(this.cartProducts));
     //we recieve the current product on the event parameter based on the emitted event on click
     console.log(event);
     if ('cart' in localStorage) {
@@ -77,7 +78,6 @@ export class AllProductsComponent implements OnInit {
       let exist = this.cartProducts.find(product => product.product.id! === event.product.id!);
       if (exist) {
         alert('Product already exists in your cart!')
-        console.log('hey')
       } else {
         this.cartProducts.push(event);
         localStorage.setItem('cart', JSON.stringify(this.cartProducts));

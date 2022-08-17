@@ -19,6 +19,10 @@ export class ProductsService {
   }
 
   getProductsByCategory(key:string): Observable<any> {
-    return key == 'all' ? this.getAllProducts() : this.http.get(`${environment.apiUrl}/products/category/${key}`)
+    return key == 'all' ? this.getAllProducts() : this.http.get(`${environment.apiUrl}/products/category/${key}`);
+  }
+
+  getProductById(id:any): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/products/${id}`);
   }
 }
